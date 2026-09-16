@@ -1,37 +1,52 @@
+import java.util.Scanner;
 
 public class TestLogistik {
-
     public static void main(String[] args) {
-        Kontainer kontainerAlfa = new Kontainer("REQ-9988", "PT. Maju Bersama", 5000);
-        System.out.println("Nama Pemilik Kontainer: " + kontainerAlfa.getNamaPemilik());
-        System.out.println("Kapasitas Maksimal: " + kontainerAlfa.getKapasitasMaksimal() + " kg");
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nMemasukkan muatan baru seberat 6.000 kg...");
-        kontainerAlfa.tambahMuatan(6000);
-        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
-      
-        System.out.println("\nMemasukkan muatan baru seberat 4.000 kg...");
-        kontainerAlfa.tambahMuatan(4000);
-        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        System.out.print("Nomor Resi\t\t: ");
+        String resi = scanner.nextLine();
+        System.out.print("Owner\t\t\t: ");
+        String pemilik = scanner.nextLine();
+        System.out.print("Max Cap (kg)\t\t: ");
+        double kapasitas = scanner.nextDouble();
 
-        System.out.println("\nMembongkar muat/menurunkan barang seberat 2.200 kg...");
-        kontainerAlfa.turunkanMuatan(2200);
-        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
-        
-        System.out.println("\nMembongkar muat/menurunkan barang seberat 500 kg...");
-        kontainerAlfa.turunkanMuatan(500);
-        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        Kontainer kontainer = new Kontainer(resi, pemilik, kapasitas);
 
-        System.out.println("\nMembongkar muat/menurunkan barang seberat 1.500 kg...");
-        kontainerAlfa.turunkanMuatan(1500);
-        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        System.out.println("\n--- INFORMASI KONTAINER ---");
+        System.out.println("Nama Pemilik\t\t: " + kontainer.getNamaPemilik());
+        System.out.println("Kapasitas Maksimal\t: " + kontainer.getKapasitasMaksimal() + " kg");
 
-        System.out.println("\nMembongkar muat/menurunkan barang seberat 1.200 kg...");
-        kontainerAlfa.turunkanMuatan(1200);
-        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        boolean selesai = false;
+        while (!selesai) {
+            System.out.println("\n--- OPERASIONAL LOGISTIK ---");
+            System.out.println("1. Tambah Muatan");
+            System.out.println("2. Turunkan Muatan");
+            System.out.println("3. Keluar");
+            System.out.print("Pilih opsi (1-3): ");
+            int pilihan = scanner.nextInt();
 
-        System.out.println("\nMembongkar muat/menurunkan barang seberat 700 kg...");
-        kontainerAlfa.turunkanMuatan(700);
-        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+            switch (pilihan) {
+                case 1:
+                    System.out.print("Masukkan berat barang yang ditambah (kg): ");
+                    double tambah = scanner.nextDouble();
+                    kontainer.tambahMuatan(tambah);
+                    System.out.println("Berat muatan saat ini: " + kontainer.getBeratMuatanSaatIni() + " kg");
+                    break;
+                case 2:
+                    System.out.print("Masukkan berat barang yang diturunkan (kg): ");
+                    double turun = scanner.nextDouble();
+                    kontainer.turunkanMuatan(turun);
+                    System.out.println("Berat muatan saat ini: " + kontainer.getBeratMuatanSaatIni() + " kg");
+                    break;
+                case 3:
+                    selesai = true;
+                    System.out.println("Sistem logistik ditutup.");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid!");
+            }
+        }
+        scanner.close();
     }
 }
