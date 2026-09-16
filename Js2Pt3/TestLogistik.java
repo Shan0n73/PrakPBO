@@ -9,17 +9,29 @@ public class TestLogistik {
         System.out.println("\nMemasukkan muatan baru seberat 6.000 kg...");
         kontainerAlfa.tambahMuatan(6000);
         System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
-
+      
         System.out.println("\nMemasukkan muatan baru seberat 4.000 kg...");
         kontainerAlfa.tambahMuatan(4000);
         System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
 
+        System.out.println("\nMembongkar muat/menurunkan barang seberat 2.200 kg...");
+        kontainerAlfa.turunkanMuatan(2200);
+        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        
         System.out.println("\nMembongkar muat/menurunkan barang seberat 500 kg...");
         kontainerAlfa.turunkanMuatan(500);
         System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
 
         System.out.println("\nMembongkar muat/menurunkan barang seberat 1.500 kg...");
         kontainerAlfa.turunkanMuatan(1500);
+        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+
+        System.out.println("\nMembongkar muat/menurunkan barang seberat 1.200 kg...");
+        kontainerAlfa.turunkanMuatan(1200);
+        System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+
+        System.out.println("\nMembongkar muat/menurunkan barang seberat 700 kg...");
+        kontainerAlfa.turunkanMuatan(700);
         System.out.println("Berat muatan saat ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
     }
 }
