@@ -5,6 +5,9 @@ public class MainPc6 {
     public static void main(String[] args) {
         Laptop laptop = new Laptop("Thinkpad");
         Printer printer = new Printer("Epson L3110");
-        laptop.cetakDokumen(printer, "Laporan.pdf");
+
+        laptop.setPrinter(printer);
+
+        laptop.cetakDokumen("Laporan.pdf");
     }
 }
