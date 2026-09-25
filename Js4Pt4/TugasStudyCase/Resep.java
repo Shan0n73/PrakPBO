@@ -11,6 +11,6 @@ public class Resep {
     }
 
     public String getDetailResep() {
-        return "obat " + namaObat + "dengan dosis " + dosis;
+        return "obat " + namaObat + " dengan dosis " + dosis;
     }
 }
